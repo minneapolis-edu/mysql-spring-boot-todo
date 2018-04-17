@@ -1,23 +1,25 @@
-# Sample To Do List web application using Spring Boot and MySQL
+# Sample To Do List web application using Spring Boot and H2
+
+Microsoft Azure sample from https://github.com/Azure-Samples/mysql-spring-boot-todo
 
 A simple Todo list application using Spring Boot with the following options:
 
-- Spring JPA and MySQL for data persistence
-- Thymeleaf templae for the rendering.
-
-To build and run the sample from a fresh clone of this repo:
-
-## Configure MySQL
-
-1. Create a database in your MySQL instance.
-2. Update the application.properties file in the `src/main/resources` folder with the URL, username and password for your MySQL instance. The table schema for the Todo objects will be created for you in the database.
-
+- Spring JPA and H2 for data persistence
+- Thymeleaf template for the rendering.
 
 ## Build and run the sample
 
-1. `mvnw package`
+1. `mvn package`
 3. `java -jar target/TodoDemo-0.0.1-SNAPSHOT.jar`
 3. Open a web browser to http://localhost:8080
 
-As you add and update tasks in the app you can verify the changes in the database through the MySQL console using simple statements like 
-`select * from todo_item`.
+## Java Version
+
+Use Java 8.  
+
+## Things to notice
+
+Tasks are displayed in a form. Notice the hidden inputs that contain data about tasks.
+The routes are able to these to figure out what changed, and update the database. 
+
+There's only one page that shows all of the tasks. The routes redirect to this page when they have finished their operation.
